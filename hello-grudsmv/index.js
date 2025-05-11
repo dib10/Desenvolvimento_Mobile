@@ -2,6 +2,7 @@ import { unique, groupBy, sumBy
  } from "./utils/arrayUtils.js";
 
  //  Caio Dib Laronga - GU3042294
+ // Desenvolvimento mobile 
 
 // para printar no console
  console.log("\nExercício 1 - Exemplo 1");
