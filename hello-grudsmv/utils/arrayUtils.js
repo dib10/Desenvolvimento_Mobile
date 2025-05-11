@@ -11,3 +11,4 @@
     // sumBy([{valor:10},{valor:5}], 'valor') → 15
     export const sumBy = (arr, key) =>
       arr.reduce((total, obj) => total + (obj[key] ?? 0), 0);
+    
