@@ -5,7 +5,7 @@
 
  type Erro = {
     tipo: "erro";
-    mensagem: string;
+    mensagem: string; // ao inves de receber dados retorna uma mensagem de erro porque não conseguiu processar os dados
  }
 
  type Resultado = Sucesso | Erro;
