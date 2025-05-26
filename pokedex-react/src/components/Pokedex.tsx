@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "./Pokedex.css";
+import PokeCard from "./PokeCard";
 
 // Definindo o tipo com base no json para simplificar a implementação
 type Pokemon = {
@@ -21,6 +22,14 @@ export default function Pokedex() {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [erro, setErro] = useState("");
 
+  //useEffect que exibe uma mensagem quando o pokedex é carregado
+  useEffect(() => {
+    if(pokemon) {
+      const capitalizarPrimeiraLetra = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+      console.log(`Pokemon ${capitalizarPrimeiraLetra} carregado com sucesso!`);
+    }
+  }, [pokemon]);
+
   const buscarPokemon = async () => {
     if (!nome.trim()) return;
 
@@ -37,7 +46,7 @@ export default function Pokedex() {
       // Convertemos o JSON dizendo ao TS que ele tem formato Pokemon 
       const dados: Pokemon = await resposta.json();
       setPokemon(dados);
-    } catch (e) {
+    } catch {
       setErro("Pokémon não encontrado 😢");
     } finally {
       setCarregando(false);
@@ -63,28 +72,7 @@ export default function Pokedex() {
       {carregando && <p className="pokedex-loading">Carregando...</p>}
       {erro && <p className="pokedex-error">{erro}</p>}
 
-      {pokemon && (
-        <div className="pokedex-card">
-          <h3 className="pokedex-name">{pokemon.name}</h3>
-          {pokemon.sprites.front_default && (
-            <img
-              src={pokemon.sprites.front_default}
-              alt={pokemon.name}
-              className="pokedex-image"
-            />
-          )}
-          <p>
-            <strong>Altura:</strong> {pokemon.height * 10} cm
-          </p>
-          <p>
-            <strong>Peso:</strong> {pokemon.weight / 10} kg
-          </p>
-          <p>
-            <strong>Tipos:</strong>{" "}
-            {pokemon.types.map((t) => t.type.name).join(" / ")}
-          </p>
-        </div>
-      )}
+      {pokemon && !carregando && !erro && <PokeCard pokemon={pokemon} />}
     </div>
   );
 }

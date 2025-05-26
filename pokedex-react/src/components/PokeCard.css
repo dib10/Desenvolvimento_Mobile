@@ -1,0 +1,114 @@
+.pokecard {
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pokecard:hover {
+  transform: translateY(-5px);
+}
+
+.pokecard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.pokecard-name {
+  font-size: 1.8em;
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+.pokecard-favorite-star {
+  margin-left: 8px;
+  font-size: 1em;
+  color: #ffcc00;
+  vertical-align: middle;
+}
+
+.pokecard-favorite-button {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.pokecard-favorite-button:hover {
+  background-color: #e0e0e0;
+}
+
+.pokecard-image {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 120px;
+  height: 120px;
+  background-color: #f8f9fa;
+  border-radius: 50%;
+  padding: 10px;
+  object-fit: contain;
+}
+
+.pokecard-info {
+  text-align: left;
+}
+
+.pokecard-info p {
+  font-size: 1em;
+  color: #555;
+  margin: 8px 0;
+}
+
+.pokecard-info strong {
+  color: #333;
+  margin-right: 5px;
+}
+
+.pokemon-types {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pokemon-type {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.type-grass { background-color: #78C850; }
+.type-fire { background-color: #F08030; }
+.type-water { background-color: #6890F0; }
+.type-bug { background-color: #A8B820; }
+.type-normal { background-color: #A8A878; }
+.type-poison { background-color: #A040A0; }
+.type-electric { background-color: #F8D030; }
+.type-ground { background-color: #E0C068; }
+.type-fairy { background-color: #EE99AC; }
+.type-fighting { background-color: #C03028; }
+.type-psychic { background-color: #F85888; }
+.type-rock { background-color: #B8A038; }
+.type-ghost { background-color: #705898; }
+.type-ice { background-color: #98D8D8; }
+.type-dragon { background-color: #7038F8; }
+.type-dark { background-color: #705848; }
+.type-steel { background-color: #B8B8D0; }
+.type-flying { background-color: #A890F0; }
