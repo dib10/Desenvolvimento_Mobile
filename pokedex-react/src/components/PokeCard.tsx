@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './PokeCard.css'; 
 
 type Pokemon = {
+    id: number;
     name: string;
     height: number;
     weight: number;
@@ -18,16 +19,11 @@ type Pokemon = {
 // Interface para as props do PokeCard
 interface PokeCardProps {
     pokemon: Pokemon;
+    isFavorite: boolean;
+    onToggleFavorite: (pokemonName: string) => void;
 }
 
-export default function PokeCard({ pokemon }: PokeCardProps) {
-    //aqui usa UseState para manipular o estado do componente, inicializando como false
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    //Renderiza o componente
-    const toggleFavorite = () => {
-        setIsFavorite(!isFavorite);
-    };
+export default function PokeCard({ pokemon, isFavorite, onToggleFavorite }: PokeCardProps) {
 
     const capitalizarPrimeiraLetra = (str: string): string => { 
         if (!str) return ''; 
@@ -62,7 +58,7 @@ export default function PokeCard({ pokemon }: PokeCardProps) {
                 </p>
 
 
-                <button onClick={toggleFavorite} className="pokecard-favorite-button"> 
+                <button onClick={() => onToggleFavorite(pokemon.name)} className="pokecard-favorite-button"> 
                     {isFavorite ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos'}
                 </button>
             </div>
