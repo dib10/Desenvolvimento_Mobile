@@ -3,8 +3,8 @@ import { Pokemon, PokemonListItem } from '../types/Pokemon';
 
 const API_BASE = 'https://pokeapi.co/api/v2';
 
-export async function getPokemons(limit: number): Promise<PokemonListItem[]> {
-  const res = await axios.get(`${API_BASE}/pokemon?limit=${limit}`);
+export async function getPokemons(limit: number, offset: number): Promise<PokemonListItem[]> {
+  const res = await axios.get(`${API_BASE}/pokemon?limit=${limit}&offset=${offset}`);
   return res.data.results;
 }
 
